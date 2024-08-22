@@ -1,13 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({ item }) => {
+  const navigate = useNavigate();
+  const showDetail = () => {
+    navigate(`/product/${item.id}`);
+  };
+
   return (
-    <div>
-      <img src="https://www.cos.com/static-images/products/assets/001/08/97/089716df422f963bf93e6fedc16bdaac45ac20f0_xxl-1.jpg?imwidth=768" />
-      <div>Woman Clothing</div>
-      <div>Top</div>
-      <div>$130</div>
-      <div>New Arrivals</div>
+    <div className="product-card" onClick={showDetail}>
+      <img src={item?.img} />
+      <div>{item?.title}</div>
+      <div>${item?.price / 1000}</div>
+      <div>{item?.new == true ? "NEW ARRIVAL" : ""}</div>
     </div>
   );
 };

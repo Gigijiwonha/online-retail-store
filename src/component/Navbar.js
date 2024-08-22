@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const menuList = [
@@ -14,10 +15,15 @@ const Navbar = () => {
     "SALE",
   ];
 
+  const navigate = useNavigate();
+
+  const goToLogIn = ()=> {
+    navigate('/login')
+  }
   return (
     <div>
       <div>
-        <div className="login-btn">
+        <div className="login-btn" onClick={goToLogIn}>
           <FontAwesomeIcon icon={faUser} />
           <div>Login</div>
         </div>

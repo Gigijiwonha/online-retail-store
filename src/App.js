@@ -1,9 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
 import ProductDetail from "./page/ProductDetail";
+import PrivateRouter from "./route/PrivateRouter";
 import Navbar from "./component/Navbar";
+import { useEffect, useState } from "react";
 
 //1. All products page, log-in, product details
 //1.1 NAV bar
@@ -17,13 +20,19 @@ import Navbar from "./component/Navbar";
 //7. Users can search the products by any key words.
 
 function App() {
+  const [authenticate, setAuthenticate] = useState(false);
+  useEffect(() => {}, [authenticate]);
+
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<ProductAll />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route
+          path="/login"
+          element={<Login setAuthenticate={setAuthenticate} />}
+        />
+        <Route path="/product/:id" element={<PrivateRouter authenticate ={authenticate}/>} />
       </Routes>
     </div>
   );
