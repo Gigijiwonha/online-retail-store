@@ -8,8 +8,8 @@ import PrivateRouter from "./route/PrivateRouter";
 import Navbar from "./component/Navbar";
 import { useEffect, useState } from "react";
 
-//1. All products page, log-in, product details
-//1.1 NAV bar
+//1. Create all pages - home page, products page, log-in, product details
+//1.1 NAV bar - hamburger button / Search bar, wish-list and log-in
 //2. Displaying all products on the page.
 //3. Displaying log-in page by pressing log-in button.
 //4. Rerouting to log-in page, when users want to see product's detail without log-in.
@@ -32,7 +32,10 @@ function App() {
           path="/login"
           element={<Login setAuthenticate={setAuthenticate} />}
         />
-        <Route path="/product/:id" element={<PrivateRouter authenticate ={authenticate}/>} />
+        <Route
+          path="/product/:id"
+          element={<PrivateRouter authenticate={authenticate} />}
+        />
       </Routes>
     </div>
   );

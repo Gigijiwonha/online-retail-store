@@ -8,7 +8,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   let { id } = useParams();
   const getProductDetail = async () => {
-    let url = `http://localhost:4000/products/${id}`;
+    let url = `https://my-json-server.typicode.com/Gigijiwonha/online-retail-store/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     console.log("data>>>>", data);
@@ -21,12 +21,12 @@ const ProductDetail = () => {
   return (
     <Container className="product-detail-contatiner">
       <Row>
-        <Col>
+        <Col xs={7} className="product-detail-img">
           <img src={product?.img} />
         </Col>
-        <Col>
+        <Col xs={5} className="product-detal-info">
           <h1>{product?.title}</h1>
-          <h3>${product?.price / 1000}</h3>
+          <h3>${product?.price}</h3>
           <Button variant="dark" type="submit">
             ADD TO CART
           </Button>

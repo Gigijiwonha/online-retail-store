@@ -9,10 +9,15 @@ const ProductCard = ({ item }) => {
 
   return (
     <div className="product-card" onClick={showDetail}>
-      <img src={item?.img} />
-      <div>{item?.title}</div>
-      <div>${item?.price / 1000}</div>
-      <div>{item?.new == true ? "NEW ARRIVAL" : ""}</div>
+      <div>
+        <img src={item?.img} />
+        <div className="product-card-NewArrival">
+          {item?.new == true ? "NEW ARRIVAL" : ""}
+        </div>
+      </div>
+      <div className="product-card-title">{item?.title}</div>
+      <div className="product-card-price">${item?.price}</div>
+      <div className='product-card-line'></div>
     </div>
   );
 };
