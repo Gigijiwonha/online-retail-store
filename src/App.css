@@ -67,6 +67,7 @@ body {
   font-size: 30px;
   margin: 20px 10px 5px 10px;
   cursor: pointer;
+  mix-blend-mode: difference;
 }
 
 .nav-header-logout div{
